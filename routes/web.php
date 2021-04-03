@@ -18,7 +18,7 @@ Route::get('/', function () {
 });
 
 Route::get('test', function () {
-    return view('home');
+    return view('pokemons');
 });
 
 Route::get('/dashboard', function () {
@@ -26,3 +26,11 @@ Route::get('/dashboard', function () {
 })->middleware(['auth'])->name('dashboard');
 
 require __DIR__.'/auth.php';
+
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

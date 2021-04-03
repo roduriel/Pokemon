@@ -1,5 +1,5 @@
 <template>
-    <form v-on:submit.prevent="buscar">
+    <form>
         <div class="input-group" >
         <input class="form-control form-control-lg rounded-pill py-2 pr-5 mr-1 bg-transparent" type="search" placeholder="Search" id="search-input1" v-model="words">
         <span class="input-group-append">

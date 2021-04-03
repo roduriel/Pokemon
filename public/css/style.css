@@ -127,6 +127,15 @@ body {
     border: 0.1rem solid #000000 !important;
 }
 
+.dropdown-menu {
+    background-color: #343A40 !important;
+}
+
+.dropdown-menu > .dropdown-item:hover{
+    background:#636e7a !important;
+    color:#302e2e !important;
+}
+
 @media (max-width: 991px) {
     .logo-nav-center {
         bottom: 15.2rem;

@@ -10,4 +10,4 @@ import App from './views/app.vue';
 
 
 createApp(Searcher).mount('#searcher')
-createApp(App).mount('#app')
+createApp(App).mount('#poke')
