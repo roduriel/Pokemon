@@ -3,6 +3,10 @@
     --very-dark-desaturated: hsl(229, 23%, 23%);
     --dark-grayish-blue: hsl(227, 10%, 46%);
     --dark-gray: hsl(0, 0%, 59%);
+
+    --carousel-color-primary: #ff0000 !important;
+    --carousel-color-secondary: #ff6b6b !important;
+    --carousel-color-white: #ffffff !important;
   }
   
   
@@ -118,6 +122,10 @@ body {
     height: 100vh;
   } 
 
+  .carousel__prev,
+  .carousel__next {
+    border: 0.1rem solid #000000 !important;
+}
 
 @media (max-width: 991px) {
     .logo-nav-center {
