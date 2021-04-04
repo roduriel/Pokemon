@@ -184,6 +184,11 @@ body {
         width: 4rem;
         margin-left: -2rem !important;  /* 50% of your logo width */
     }
+
+    .card {
+      max-height: 20rem;
+      max-height: 22rem;
+    }
   }
 
   

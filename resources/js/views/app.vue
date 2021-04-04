@@ -1,5 +1,5 @@
 <template>
-    <div class="col-8 mt-3">
+    <div class="col-12 col-sm-12 col-md-8 col-lg-8 mt-3">
         <carousel :items-to-show="1.5" :wrap-around="true" :breakpoints="breakpoints">
           <slide v-for="(pokemon, index) in pokemons" :key="index" >
             <div class="carousel__item">
