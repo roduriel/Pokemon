@@ -17,8 +17,8 @@
                     <b>{{pokemon.name}}</b> <span>{{hp}}</span>
                 </h1>
                 <p class="card-body-text">{{xp}} Exp</p>
-                <p class="card-body-text">
-                    <input type="checkbox" class="chk" :id="'st'+id" value="false" />
+                <p class="card-body-text" >
+                    <input type="checkbox" class="chk" :id="'st'+id" v-model="fav" @change="check($event)">
                     <label :for="'st'+id" class="chklabel"></label>
                 </p>
             </div>
@@ -55,8 +55,32 @@
                 xp: null,
                 attack: null,
                 special: null,
-                defense: null
+                defense: null,
+                fav:null,
             };
+        },
+          methods: {
+            check:function(e) {
+                if(this.fav == true){
+                    axios.post('chekuser',{favorite: this.fav})
+                    .then((response)=>{
+                        
+                        if(response.data.session){
+                             axios.post('favorites',{pokemonId: this.id})
+                            .then((response)=>{
+                                console.log(response.data.Estado);
+                            });
+                            
+                        }else{
+                            alert('debes iniciar sesion');
+                            this.fav = false;
+                        }
+
+                    })
+                }else{
+                    alert('estoy DESMARCADO')                    
+                }
+            }
         },
         mounted() {
             axios

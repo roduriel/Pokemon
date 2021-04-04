@@ -155,7 +155,7 @@ body {
 }
 
 .chklabel:before {
-  margin: 5px;
+  margin: 0;
   content: "\f005";
   font-family: FontAwesome;
   display: inline-block;

@@ -35,6 +35,7 @@
         "font-awesome": "^4.7.0",
         "vue-axios": "^3.2.4",
         "vue-router": "^3.5.1",
-        "vue3-carousel": "^0.1.13"
+        "vue3-carousel": "^0.1.13",
+        "vuesax": "^4.0.1-alpha.25"
     }
 }
