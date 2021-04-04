@@ -17,6 +17,10 @@
                     <b>{{pokemon.name}}</b> <span>{{hp}}</span>
                 </h1>
                 <p class="card-body-text">{{xp}} Exp</p>
+                <p class="card-body-text">
+                    <input type="checkbox" class="chk" :id="'st'+id" value="false" />
+                    <label :for="'st'+id" class="chklabel"></label>
+                </p>
             </div>
             <div class="card-footer">
                 <div class="card-footer-social">

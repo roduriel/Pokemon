@@ -1,0 +1,55 @@
+:root {
+    --dark-cyan: hsl(185, 75%, 39%);
+    --very-dark-desaturated: hsl(229, 23%, 23%);
+    --dark-grayish-blue: hsl(227, 10%, 46%);
+    --dark-gray: hsl(0, 0%, 59%);
+
+    --carousel-color-primary: #ff0000 !important;
+    --carousel-color-secondary: #ff6b6b !important;
+    --carousel-color-white: #ffffff !important;
+  }
+  
+  
+body {
+    background: linear-gradient(rgba(255,255,255,.6), rgba(255,255,255,.6)), url('../img/wall2.jpg') no-repeat center center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    background-size: cover;
+    -o-background-size: cover;
+}
+
+.logo{
+    width: 8rem;
+}
+
+.logo-nav-center {
+    position: absolute;
+    left: 50%;
+    margin-left: -50px !important;  /* 50% of your logo width */
+    display: block;
+    width: 5rem;
+}
+
+.dropdown-menu {
+    background-color: #343A40 !important;
+}
+
+.dropdown-menu > .dropdown-item:hover{
+    background:#636e7a !important;
+    color:#302e2e !important;
+}
+
+@media (max-width: 991px) {
+    .logo-nav-center {
+        bottom: 15.2rem;
+        width: 4rem;
+        margin-left: -2rem !important;  /* 50% of your logo width */
+    }
+  }
+
+  
+@media (max-width: 443px) {
+    .logo-nav-center {
+        display: none;
+    }
+  }
