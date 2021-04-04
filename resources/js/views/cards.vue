@@ -68,7 +68,7 @@
                         if(response.data.session){
                              axios.post('favorites',{pokemonId: this.id})
                             .then((response)=>{
-                                console.log(response.data.Estado);
+                                console.log(response);
                             });
                             
                         }else{

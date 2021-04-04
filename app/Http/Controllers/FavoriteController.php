@@ -3,7 +3,10 @@
 namespace App\Http\Controllers;
 
 use App\Models\Favorite;
+
 use Illuminate\Http\Request;
+
+use Auth;
 
 class FavoriteController extends Controller
 {
@@ -36,15 +39,25 @@ class FavoriteController extends Controller
     public function store(Request $request)
     {
         if($request->pokemonId > 0){
+            
+           $row = Favorite::where('user_id', Auth::user()->id)
+                           ->where('pokemon_id', $request->pokemonId)
+                           ->count();
+             if($row == 0){
+                $favorito = Favorite::create([
+                    'user_id'    => Auth::user()->id,
+                    'pokemon_id' => $request->pokemonId,        
+                ]);
 
-            $request->validate([
-                'pokemonId' => 'required|numeric'
-            ]);
-
+                return response()->json([
+                    'Estado' => 'success'
+                ]);
+            }
 
             return response()->json([
-                'Estado' => 'success'
-            ]);
+                'Estado' => 'failure'
+            ],404);
+
         }
     }
 
