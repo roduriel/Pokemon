@@ -9,8 +9,6 @@
 
     <title>{{ config('app.name', 'Laravel') }}</title>
 
-    <!-- Scripts -->
-    <script src="{{ asset('js/app.js') }}" defer></script>
 
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
@@ -35,7 +33,11 @@
                       <ul class="navbar-nav mr-auto">
                         @auth   
                         <li class="nav-item">
+                          @if (Route::is('favsindex'))
+                          <a class="nav-link" href="/"><i class="fa fa-home"></i>  Inicio</a>
+                          @else
                           <a class="nav-link" href="#"><i class="fa fa-heart-o"></i>  Favoritos</a>
+                          @endif
                         </li>
                         @endauth
                       </ul>
@@ -92,5 +94,9 @@
             @yield('content')
         </main>
     </div>
+    
+    <!-- Scripts -->
+    <script src="{{ asset('js/app.js') }}"></script>
+    @yield('scripts')
 </body>
 </html>

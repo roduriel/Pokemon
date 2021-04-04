@@ -1,13 +1,4 @@
 <template>
-<!--     <div class="card h-100 text-white bg-dark" style="width: 18rem;">
-       <img class="card-img-top" :src="personaje" alt="Card image cap">
-        <div class="card-body">
-            <h5 class="card-title">{{pokemon.name}}</h5>
-            <p class="card-text">{{personaje}}</p>
-            <a href="#" class="btn btn-primary">Go somewhere</a>
-        </div>
-    </div> -->
-
         <article class="card">
             <img src="../../../public/img/bg-pattern-card.svg" alt="imagen header card" class="card-header">
             <div class="card-body">
@@ -67,11 +58,13 @@
                         if(response.data.session){
                              axios.post('favorites',{pokemonId: this.id})
                             .then((response)=>{
-                                console.log(response);
+                                var msg = 'Has agregado a '+ this.pokemon.name + ' a tus favoritos.'
+                                this.$swal('', msg, 'success')
+
                             });
                             
                         }else{
-                            alert('debes iniciar sesion');
+                            this.$swal('', 'Debes iniciar sesion o crear una cuenta para guardar tu pokemón', 'error')
                             this.fav = false;
                         }
 
@@ -82,12 +75,14 @@
                         if(response.data.session){
                              axios.post('favoritesdel',{pokemonId: this.id})
                             .then((response)=>{
-                                console.log(response);
+                                var msg = 'Has quitado a '+ this.pokemon.name + ' de tus favoritos.'
+                                this.$swal('', msg, 'info')
+
                             });
                             
                         }else{
-                            alert('debes iniciar sesion');
-                            this.fav = false;
+                            this.$swal('', 'Debes iniciar sesion o crear una cuenta para guardar tu pokemón', 'error')
+                            this.fav = true;
                         }
 
                     })                  
@@ -97,15 +92,26 @@
         mounted() {
             axios
             .get(this.pokemon.url)
-            .then(response =>([
-                this.id        = response.data.id,
-                this.personaje = response.data.sprites.other.dream_world.front_default,
-                this.hp        = response.data.stats[0].base_stat,
-                this.xp        = response.data.base_experience,
-                this.attack    = response.data.stats[1].base_stat,
-                this.special   = response.data.stats[3].base_stat,
-                this.defense   = response.data.stats[2].base_stat,
-                ]));
+            .then(response =>{
+                axios.post('chekuser',{favorite: this.fav})
+                    .then((response)=>{
+                        if(response.data.session){
+                            axios.post('chekfav',{pokemonId: this.id})
+                            .then((response)=>{
+                                if(response.data.checked){
+                                    this.fav= true;
+                                }
+                            });
+                        }
+                });
+                this.id        = response.data.id;
+                this.personaje = response.data.sprites.other.dream_world.front_default;
+                this.hp        = response.data.stats[0].base_stat;
+                this.xp        = response.data.base_experience;
+                this.attack    = response.data.stats[1].base_stat;
+                this.special   = response.data.stats[3].base_stat;
+                this.defense   = response.data.stats[2].base_stat;
+                });
         },
 
     }

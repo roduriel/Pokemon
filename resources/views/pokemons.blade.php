@@ -24,7 +24,7 @@
                       <ul class="navbar-nav mr-auto">
                         @auth   
                         <li class="nav-item">
-                          <a class="nav-link" href="#"><i class="fa fa-heart-o"></i>  Favoritos</a>
+                          <a class="nav-link" href="{{ route('favsindex') }}"><i class="fa fa-heart-o"></i>  Favoritos</a>
                         </li>
                         @endauth
                       </ul>

@@ -17,7 +17,7 @@ class FavoriteController extends Controller
      */
     public function index()
     {
-        //
+        return view('favorites.index');
     }
 
     /**
@@ -67,9 +67,14 @@ class FavoriteController extends Controller
      * @param  \App\Models\Favorite  $favorite
      * @return \Illuminate\Http\Response
      */
-    public function show(Favorite $favorite)
+    public function show()
     {
-        //
+        $pokemons = Favorite::where('user_id', Auth::user()->id)
+                              ->get();
+
+        return response()->json([
+            'pokemons' => $pokemons
+        ]);
     }
 
     /**
@@ -93,6 +98,24 @@ class FavoriteController extends Controller
     public function update(Request $request, Favorite $favorite)
     {
         //
+    }
+
+    public function checked(Request $request)
+    {
+        if($request->pokemonId > 0){
+            $row = Favorite::where('user_id', Auth::user()->id)
+                           ->where('pokemon_id', $request->pokemonId)
+                           ->count();
+            if($row > 0){
+                return response()->json([
+                    'checked' => true
+                ]);
+            }else{
+                return response()->json([
+                    'checked' => false
+                ]);
+            }
+        }
     }
 
     /**
