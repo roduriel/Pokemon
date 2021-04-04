@@ -37,3 +37,4 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 
 Route::post('chekuser', [App\Http\Controllers\CheckuserController::class, 'Check'])->name('chekuser');
 Route::post('favorites', [App\Http\Controllers\FavoriteController::class, 'store'])->middleware(['auth'])->name('favorites');
+Route::post('favoritesdel', [App\Http\Controllers\FavoriteController::class, 'destroy'])->middleware(['auth'])->name('favorites');

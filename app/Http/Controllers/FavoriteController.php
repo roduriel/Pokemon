@@ -101,8 +101,24 @@ class FavoriteController extends Controller
      * @param  \App\Models\Favorite  $favorite
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Favorite $favorite)
+    public function destroy(Request $request)
     {
-        //
+        if($request->pokemonId > 0){
+
+            $row = Favorite::where('user_id', Auth::user()->id)
+                            ->where('pokemon_id', $request->pokemonId)
+                            ->count();
+            if($row > 0){
+                
+                $favs =Favorite::where('user_id', Auth::user()->id)
+                                ->where('pokemon_id', $request->pokemonId)
+                                ->delete();
+                
+                return response()->json([
+                    'prueba' => 'borrar a'.$request->pokemonId
+                ]);
+            }
+
+        }
     }
 }

@@ -64,7 +64,6 @@
                 if(this.fav == true){
                     axios.post('chekuser',{favorite: this.fav})
                     .then((response)=>{
-                        
                         if(response.data.session){
                              axios.post('favorites',{pokemonId: this.id})
                             .then((response)=>{
@@ -78,7 +77,20 @@
 
                     })
                 }else{
-                    alert('estoy DESMARCADO')                    
+                    axios.post('chekuser',{favorite: this.fav})
+                    .then((response)=>{
+                        if(response.data.session){
+                             axios.post('favoritesdel',{pokemonId: this.id})
+                            .then((response)=>{
+                                console.log(response);
+                            });
+                            
+                        }else{
+                            alert('debes iniciar sesion');
+                            this.fav = false;
+                        }
+
+                    })                  
                 }
             }
         },
