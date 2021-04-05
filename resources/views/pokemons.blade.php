@@ -61,39 +61,16 @@
                                     </form>
                                 </div>
                             </li>
-                        @endguest{{-- 
-                          <li class="nav-item active">
-                            <a class="nav-link" href="{{ route('login') }}">Ingresar <span class="sr-only">(current)</span></a>
-                          </li>
-                          <li class="nav-item">
-                            <a class="nav-link" href="{{ route('register') }}">Registrarse</a>
-                          </li> --}}
-
+                        @endguest
                         </ul>
                       </span>
                     </div>
                   </nav>
             </div>
         </div>
-        <div class="row pt-5 justify-content-center">
-          <div class="col-6 " id="searcher">
-{{--             <form action="">
-              <div class="input-group" >
-                <input class="form-control form-control-lg rounded-pill py-2 pr-5 mr-1 bg-transparent" type="search" placeholder="Search" id="search-input1" >
-                <span class="input-group-append">
-                  <button class="btn border-0 bg-transparent ml-n5" type="button">
-                    <i class="fa fa-search"></i>
-                  </button>
-                </span>
-              </div>
-            </form> --}}
-          </div>
-        </div>
-        <div class="row justify-content-center" id='poke'>
+        <div id="poke">
         </div>
     </div>    
     <script src="{{ mix('js/app.js') }}"></script>
-{{--     <script src="{{ asset('js/scripts.js') }}"></script>
- --}}
 </body>
 </html>

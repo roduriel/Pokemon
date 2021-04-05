@@ -50,7 +50,37 @@
                 fav:null,
             };
         },
+        watch: {
+            pokemon: function(){
+                console.log('estoy en el card');
+                this.getinfo(this.pokemon);
+            }
+        },
           methods: {
+            getinfo(pokemon){
+                axios
+                .get(pokemon.url)
+                .then(response =>{
+                    axios.post('chekuser',{favorite: this.fav})
+                        .then((response)=>{
+                            if(response.data.session){
+                                axios.post('chekfav',{pokemonId: this.id})
+                                .then((response)=>{
+                                    if(response.data.checked){
+                                        this.fav= true;
+                                    }
+                                });
+                            }
+                    });
+                    this.id        = response.data.id;
+                    this.personaje = (response.data.sprites.other.dream_world.front_default == null ? response.data.sprites.front_default : response.data.sprites.other.dream_world.front_default);
+                    this.hp        = response.data.stats[0].base_stat;
+                    this.xp        = response.data.base_experience;
+                    this.attack    = response.data.stats[1].base_stat;
+                    this.special   = response.data.stats[3].base_stat;
+                    this.defense   = response.data.stats[2].base_stat;
+                    });
+            },
             check:function(e) {
                 if(this.fav == true){
                     axios.post('chekuser',{favorite: this.fav})
@@ -105,7 +135,7 @@
                         }
                 });
                 this.id        = response.data.id;
-                this.personaje = response.data.sprites.other.dream_world.front_default;
+                this.personaje = (response.data.sprites.other.dream_world.front_default == null ? response.data.sprites.front_default : response.data.sprites.other.dream_world.front_default);
                 this.hp        = response.data.stats[0].base_stat;
                 this.xp        = response.data.base_experience;
                 this.attack    = response.data.stats[1].base_stat;
