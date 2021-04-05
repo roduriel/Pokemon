@@ -1,1 +1,17 @@
+<<<<<<< HEAD
 node_modules
+=======
+/node_modules
+/public/hot
+/public/storage
+/storage/*.key
+/vendor
+.env
+.env.backup
+.phpunit.result.cache
+docker-compose.override.yml
+Homestead.json
+Homestead.yaml
+npm-debug.log
+yarn-error.log
+>>>>>>> 75ecf20dc813b1ef9feb6be829bedae88e40073b
