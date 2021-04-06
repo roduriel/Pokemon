@@ -65,7 +65,7 @@ body {
     position: absolute;
     border: 0.4rem solid white;
     border-radius: 50%;
-    margin-top: calc(-8rem - 0.1rem);
+    margin-top: calc(-6rem  - 0.1rem);
     background-color: white;
     width: 8rem;
     height: 8.1rem !important;
@@ -186,9 +186,52 @@ body {
     }
 
     .card {
-      max-height: 20rem;
+      max-width: 15rem;
       max-height: 22rem;
     }
+
+    .card-body-img {
+      width: 6rem;
+      height: 6.1rem !important;
+      
+    }
+
+    .card-body {
+      padding-top: 0.2rem !important;
+      padding-bottom: 0 !important;
+      margin-top: calc(0.5rem  - 0.1rem) !important;  
+    }
+
+    .card-body h5 {
+      margin: 0;
+      
+    }
+
+    .card-body-text {
+      font-size: 1rem;
+      margin: 0;
+    }
+
+    .card-body-title {
+      margin: 0;
+    }
+
+    .card-body-title span {
+      font-size: 1.1rem;
+    }
+
+    .card-body-title b {
+      font-size: 1rem;
+    }
+
+    .card-footer-social h3{
+      font-size: 1.1rem;
+    }
+
+    .card-footer-social p{
+      font-size: 0.6rem;
+    }
+    
   }
 
   
@@ -196,4 +239,52 @@ body {
     .logo-nav-center {
         display: none;
     }
+
+    .card {
+      max-width: 10rem;
+    }
+
+    .card-body {
+      margin-top: calc(3rem  - 0.1rem) !important;  
+    }
+    .card-body h5{
+      font-size: 0.9rem;
+    }
+
+    .card-body-img {
+      width: 5rem;
+      height: 5.1rem !important;
+      
+    }
+
+    .card-body-text {
+      font-size: 1rem;
+    }
+
+    .card-body-title span {
+      font-size: 0.7rem;
+    }
+
+    .card-body-title b {
+      font-size: 0.8rem;
+    }
+
+    .card-body-text{
+      font-size: 0.7rem;
+    }
+
+    .card-footer{
+      padding-top: 0 !important;
+      padding-bottom: 0 !important;
+    }
+
+    .card-footer-social h3{
+      font-size: 0.8rem;
+    }
+
+    .card-footer-social p{
+      font-size: 0.5rem;
+      margin: 0;
+    }
+
   }
