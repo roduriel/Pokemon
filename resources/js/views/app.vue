@@ -68,7 +68,7 @@
             var numb = value.match(/\d/g);
             if(numb == null){
               axios
-              .get('https://pokeapi.co/api/v2/pokemon/'+value.trim())
+              .get('https://pokeapi.co/api/v2/pokemon/'+value.trim().toLowerCase())
               .then((response) =>{
                 value = parseInt(response.data.id)-1;
                 const url = 'https://pokeapi.co/api/v2/pokemon?offset='+value+'&limit=10';
