@@ -52,7 +52,7 @@
         },
         watch: {
             pokemon: function(){
-                console.log('estoy en el card');
+                /* console.log('estoy en el card'); */
                 this.getinfo(this.pokemon);
             }
         },
