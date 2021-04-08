@@ -37,7 +37,7 @@ Para instalar el proyecto debera tener instalado Docker
 
 1° Debera clonar el repositorio  desdel siguiente link: 
 https://github.com/roduriel/Pokemon.git
-con el comando git clone https://github.com/roduriel/Pokemon.git
+con el comando: git clone https://github.com/roduriel/Pokemon.git
 
 2° Desde la tarminal, buscar la carpeta donde se guardo
  el archivo y situarse sobre ella.
