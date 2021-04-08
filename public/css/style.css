@@ -36,7 +36,7 @@ body {
     overflow: hidden;
     -webkit-box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
     box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
-    max-height: 28rem;
+    max-height: 30rem;
 }
 
 .card-header {
