@@ -1,66 +1,41 @@
-<<<<<<< HEAD
-# Pokemon
-=======
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400"></a><br>Pokemon</p>
+Este aplicativo web te permitirá buscar a tus pokemon´s favoritos ya sea por su número o su nombre, así mismo, podrás agregarlos a tu cuenta.
 
-<p align="center">
-<a href="https://travis-ci.org/laravel/framework"><img src="https://travis-ci.org/laravel/framework.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+ARQUITECTURA
+Para la obtención de los pokemon´s en la páina princical, se genera la vista con el motor de vistas Blade y con la ayuda del framwork VueJs se renderizan algunos componentes como las tarejtas de los personajes, para que al realizar la peticion HTTP, devuelva los datos y estos sean procesados y recorridos para mostrarlos al cliente, durante este proceso se ejecuta una nueva petición de tipo POST al controlador de laravel para poder validar si existe algun usuario y posteriormente esta informacion obtenida tanto en la API de pokemon como en el controlador de laravel es regresando a la vista del cliente.
 
-## About Laravel
+Para guardar la informacion de pokemons favoritos, se muestran la opciones en la vista del cliente con VueJs y se realizan 2 peticiones de tipo POST, una para validar si existe un usuario con ese ld de pokemon y la segunta es para poder gardar el registro en nuesta base de datos de MYSQL y finalmente si todo el proceso fue exitoso, se renderizan los componentes con VueJs y se les muestra al cliente con la informacion nuevemnte obtenida en la API y el controlador de Laravel.
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+Al mostrar la lista de favoritos se realiza una consulta a la base de datos MySQL por medio de una pesticion de tipo POST que envia el framwork JQuery para que pueda procesar los datos y mostralos al cliente en la vista de index del controlador de Favoritos.
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+POKEAPI
+Para la busqueda de los pokemon´s se utilizó la API del sitio oficial de POKEMON, gracias a ella obtenemos los datos más relevantes y por medio de HTTP requests hacemos las peticiones para tener acceso a dicha iunformacion. Se implemento la tecnología AXIOS para las peticiones GET hacia la PokeAPI y POST para guardar en nuestra base de datos los id´s de los pokemon´s favoritos del usuarios.
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+INSTRUCTIVO
+Para instalar el proyecto debera tener instalado Docker
 
-## Learning Laravel
+1° Debera clonar el repositorio desdel siguiente link: https://github.com/roduriel/PokechallengeProduction.git con el comando git clone
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+2° Desde la tarminal, buscar la carpeta donde se guardo la el archivo y situarse sobre ella.
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains over 1500 video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+3° Se deberá ingresar el siguiente comando: docker-compose up -d.
 
-## Laravel Sponsors
+4° una vez que haya finalizado el proceso de instalacion del contenedor, se mostrará en la misma terminal, cuando este listo para que accedamos por nuestro navegador.
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the Laravel [Patreon page](https://patreon.com/taylorotwell).
+5° Correremos el siguiente comando: docker ps para que podamos observar el id del contenedor en donde estara funcionando el proyecto.
 
-### Premium Partners
+6° Ejecutamos el comando: docker excec -it /bin/bash
 
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Cubet Techno Labs](https://cubettech.com)**
-- **[Cyber-Duck](https://cyber-duck.co.uk)**
-- **[Many](https://www.many.co.uk)**
-- **[Webdock, Fast VPS Hosting](https://www.webdock.io/en)**
-- **[DevSquad](https://devsquad.com)**
-- **[Curotec](https://www.curotec.com/)**
-- **[OP.GG](https://op.gg)**
+7° Posteriormente corremos el comando cd ../ para regresar un directorio atras.
 
-## Contributing
+8° Finalmente podemos correr el comando: php artisan migrate para correr nuestras migraciones de laravel.
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+9° Desde el navegador podemos ingresar a la direccion: localhost:8200 y ya podremos buscar a nuestros pokemon´s favoritos.
 
-## Code of Conduct
+FUNCIONAMIENTO
+En la primera pantalla de la aplicacion web podrás observar diez pokemons generads aleatoreamente. Lo anterior con al finalidad de se muestren varias opciones al usuario.
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+Cada trajeta de los personajes cuanta con un boton en forma de estrella en el cual podrás darle click para agregarlo a la lista de tus favoritos, asi mismo encontraras un buscador el cual tendrás que ingresar el número o nombre exacto del pokemon que deseas visualizar, en esta busqueda no solo aparecera el personaje buscado si no junto con 9 opciones de pokemons junto con la tuya.
 
-## Security Vulnerabilities
+Luego de que se haya marcado/desmacado el boton de favoritos, aparecerá una alerta indicando si ya has agregado el registo o debes regitrarte para poder realizar la acción antes mencionada.
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
-
-## License
-
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
->>>>>>> 75ecf20dc813b1ef9feb6be829bedae88e40073b
+Finalmente si realizaste exisamente tu resgitro o inciaste sesión con los botones ubicados en la esquina superior derecha, podrás observar la lista de todos los pokemon´s que has agregado, asi mismo al regresar a la pagina de inicio te saldran marcadas aquellas opciones que en otras ocaciones has seleccionado.
